@@ -5,6 +5,35 @@
     <title>title</title>
 </head>
 <body>
-{{text}}
+
+<div>
+<div style="width:70%; display:inline-block;">
+
+    <h2>Поиск по сообщениям</h2>
+    <form action="/filter" method="post">
+        <input type="text" name="filter">
+        <input type="submit" value="Поиск по тегу">
+    </form>
+
+    <h2>Сообщения: </h2>
+    <ul>
+        {{#messages}}
+            <li>
+                <b>{{id}}</b>
+                <span>{{text}}</span>
+                <i>Тег: {{tag}}</i>
+            </li>
+        {{/messages}}
+    </ul>
+</div>
+<div style="width:20%; display:inline-block;">
+    <h2>Добавить сообщение</h2>
+    <form action="/add" method="post">
+        <label for="text">Текст : <input type="text" name="text"/></label><br>
+        <label for="text">Тег : <input type="text" name="tag"/></label><br>
+        <input type="submit" value="Отправить сообщение">
+    </form>
+</div>
+</div>
 </body>
 </html>
